@@ -1,13 +1,43 @@
 import React, { useState } from 'react';
 import { ImageBackground, View, TextInput, Button, StyleSheet, Alert} from 'react-native';
+import axios from 'axios';
+import * as Keychain from 'react-native-keychain';
 
 const LoginScreen = ({ navigation }) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [classCode, setClassCode] = useState('');
+    const [associatedEmail, setAssociatedEmail] = useState('');
+    const [studentName, setStudentName] = useState('');
+    const [pin, setPin] = useState('');
 
     const handleLogin = () => {
         // Logic to handle login
+    axios.post('https://spell-to-excel-7bacf3b9891e.herokuapp.com/api/student-login/', {
+        associated_email: associatedEmail,
+        student_name: studentName, 
+        student_pin: pin 
+    })
+    .then(response => {
+        // Handle success
+        console.log(response.data);
+        const { refresh, access } = response.data;
+        // You can store these tokens in AsyncStorage or your state management solution
+        // Navigate to next screen or show success message
+
+        Keychain.setGenericPassword('tokens', JSON.stringify({ refresh, access }))
+            .then(() => {
+                navigation.navigate('StudentHomePage');
+            })
+            .catch(error => {
+                console.error("Keychain couldn't be accessed!", error);
+            });
+
+    })
+    .catch(error => {
+        // Handle error
+        console.log(error);
+        
+        // Show error message
+        Alert.alert("Login failed", "Invalid credentials")
+    });
         
     };
 
@@ -20,23 +50,22 @@ const LoginScreen = ({ navigation }) => {
             <View style={styles.container}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Username"
-                    value={username}
-                    onChangeText={setUsername}
+                    placeholder="Teacher or Parent Email"
+                    value={associatedEmail}
+                    onChangeText={setAssociatedEmail}
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder="Password"
-                    value={password}
-                    secureTextEntry
-                    onChangeText={setPassword}
+                    placeholder="Student Name"
+                    value={studentName}
+                    onChangeText={setStudentName}
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder="Class Code"
-                    value={classCode}
+                    placeholder="Pin"
+                    value={pin}
                     secureTextEntry
-                    onChangeText={setClassCode}
+                    onChangeText={setPin}
                 />
                 <Button title="Login" onPress={handleLogin} />
             </View>
