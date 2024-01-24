@@ -1,34 +1,31 @@
 import React, { useState } from 'react';
 import { ImageBackground, View, TextInput, Button, StyleSheet, Alert} from 'react-native';
 import axios from 'axios';
-import * as Keychain from 'react-native-keychain';
+import * as SecureStore from 'expo-secure-store'; // Import SecureStore from expo-secure-store
 
 const LoginScreen = ({ navigation }) => {
-    const [associatedEmail, setAssociatedEmail] = useState('');
+    const [email, setEmail] = useState('');
     const [studentName, setStudentName] = useState('');
     const [pin, setPin] = useState('');
 
     const handleLogin = () => {
         // Logic to handle login
     axios.post('https://spell-to-excel-7bacf3b9891e.herokuapp.com/api/student-login/', {
-        associated_email: associatedEmail,
+        email: email,
         student_name: studentName, 
-        student_pin: pin 
+        pin: pin 
     })
-    .then(response => {
+    .then(async response => {
         // Handle success
         console.log(response.data);
         const { refresh, access } = response.data;
         // You can store these tokens in AsyncStorage or your state management solution
         // Navigate to next screen or show success message
 
-        Keychain.setGenericPassword('tokens', JSON.stringify({ refresh, access }))
-            .then(() => {
-                navigation.navigate('StudentHomePage');
-            })
-            .catch(error => {
-                console.error("Keychain couldn't be accessed!", error);
-            });
+        await SecureStore.setItemAsync('access_token', access);
+        await SecureStore.setItemAsync('refresh_token', refresh);
+
+        navigation.navigate('StudentHomePage');
 
     })
     .catch(error => {
@@ -51,8 +48,8 @@ const LoginScreen = ({ navigation }) => {
                 <TextInput
                     style={styles.input}
                     placeholder="Teacher or Parent Email"
-                    value={associatedEmail}
-                    onChangeText={setAssociatedEmail}
+                    value={email}
+                    onChangeText={setEmail}
                 />
                 <TextInput
                     style={styles.input}
