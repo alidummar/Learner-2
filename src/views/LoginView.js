@@ -3,6 +3,8 @@ import { ImageBackground, View, TextInput, Button, StyleSheet, Alert} from 'reac
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store'; // Import SecureStore from expo-secure-store
 
+
+/* Start of Login Logic. Sends a message over to the backend to authenticate student */
 const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [studentName, setStudentName] = useState('');
@@ -37,6 +39,7 @@ const LoginScreen = ({ navigation }) => {
     });
         
     };
+    /* End of Login Logic. */
 
     return (
         <ImageBackground 
