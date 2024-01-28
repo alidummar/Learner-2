@@ -9,7 +9,7 @@ const WelcomeScreen = ({ navigation }) => {
         <View style={styles.container}>
             <View style={styles.upperHalf}>
                 <Image
-                    source={require('../assets/WelcomeView/Welcome2.gif')}
+                    source={require('../assets/WelcomeView/Welcome.gif')}
                     style={styles.image}
                 />
             </View>
