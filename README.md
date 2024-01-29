@@ -47,6 +47,8 @@ Please use a branch when working on code. After a certain feature has been teste
 
 ### Folder Structure
 
+The `src` folder is the main directory for the source code of our React application. It is organized into several subdirectories, each with a specific purpose:
+
 **assets:** This folder contains all the static files like images, fonts, and any other assets required by the project. These are the non-code files that your project depends on. We also have subfolders in this folder that conatin all the assets for a particular view. For example, the "Welcome View" folder contains all of the assets that correspond to the welcome screen.
 
 **components:** Here you'll find the reusable components of the React application. Each component is typically a self-contained module that can be easily integrated throughout the application. This might include UI elements like buttons, input fields, and others.
