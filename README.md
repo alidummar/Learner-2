@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository hosts the mobile frontend of the Spell to Excel app. Developed using React Native, this app offers an engaging and interactive way to improve spelling skills on mobile devices designed for students between 1st and 4th grade.
+This repository hosts the mobile frontend of the Spell to Excel app. Developed using React Native, this app offers an engaging and interactive way to improve spelling skills on mobile devices designed for students between 1st and 4th graders.
 
 ## Built With
 
