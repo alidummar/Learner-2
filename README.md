@@ -41,11 +41,11 @@ After setting up the project and installing dependencies, running npm start in y
 
 **Using the Expo Go app**: Once you have started your app using npm start, you will see a QR code. You can scan the QR code displayed using the Expo Go app on your iOS or Android device. This will open your project on your device. The Expo Go app needs to be installed on your mobile device from the App Store or Google Play Store.
 
-### Repository Guidelines
+## Repository Guidelines
 
 Please use a branch when working on code. After a certain feature has been tested, then send a pull request to the main branch to merge to main. The main branch should only include tested and working code.
 
-### Folder Structure
+## Folder Structure
 
 The `src` folder is the main directory for the source code of our React application. It is organized into several subdirectories, each with a specific purpose:
 
@@ -63,7 +63,7 @@ The `src` folder is the main directory for the source code of our React applicat
 
 When the app is started, it first calls the App.js file. This then calls the AppNavigator.js file. The App Navigator then directs you to which screen to view.
 
-### Google drive documents:
+## Google drive documents:
 
 This [Google Drive Link](https://docs.google.com/document/d/1cv3wYupLLT9KxdokIB3fSvf2wyYhqmvJCdNE5L3y39Q/edit?usp=sharing) currently contains the below:
 
