@@ -39,7 +39,7 @@ Node.js and npm: Download and install them from [Node.js Website](https://nodejs
 
 After setting up the project and installing dependencies, running npm start in your project directory starts the Expo development server.
 
-**Using the Expo Go app**: Once you have started your app using npx expo start, you will see a QR code. You can scan the QR code displayed using the Expo Go app on your iOS or Android device. This will open your project on your device. The Expo Go app needs to be installed on your mobile device from the App Store or Google Play Store.
+**Using the Expo Go app**: Once you have started your app using npm start, you will see a QR code. You can scan the QR code displayed using the Expo Go app on your iOS or Android device. This will open your project on your device. The Expo Go app needs to be installed on your mobile device from the App Store or Google Play Store.
 
 ### Repository Guidelines
 
