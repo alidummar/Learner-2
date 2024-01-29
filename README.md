@@ -45,6 +45,22 @@ After setting up the project and installing dependencies, running npm start in y
 
 Please use a branch when working on code. After a certain feature has been tested, then send a pull request to the main branch to merge to main. The main branch should only include tested and working code.
 
+### Folder Structure
+
+**assets:** This folder contains all the static files like images, fonts, and any other assets required by the project. These are the non-code files that your project depends on. We also have subfolders in this folder that conatin all the assets for a particular view. For example, the "Welcome View" folder contains all of the assets that correspond to the welcome screen.
+
+**components:** Here you'll find the reusable components of the React application. Each component is typically a self-contained module that can be easily integrated throughout the application. This might include UI elements like buttons, input fields, and others.
+
+**navigation:** This directory manages the navigation/routing of the application. If you're using libraries like React Navigation for handling the navigation in a React Native app, their configurations and stack navigators will be defined here.
+
+**services:** Contains code that communicates with external services or APIs. This can include functions for HTTP requests, handling API endpoints, and other services that are integrated with the backend.
+
+**utils (or utilities):** This folder is for utility scripts and helper functions that can be used across different components and features of the app. These might include date formatting functions, validators, or any custom utility functions.
+
+**views (or screens):** This directory holds the different screens or pages of the application. In a React Native app, for example, each screen corresponding to a single view would be found here. 
+
+When the app is started, it first calls the App.js file. This then calls the AppNavigator.js file. The App Navigator then directs you to which screen to view.
+
 ### Google drive documents:
 
 This [Google Drive Link](https://docs.google.com/document/d/1cv3wYupLLT9KxdokIB3fSvf2wyYhqmvJCdNE5L3y39Q/edit?usp=sharing) currently contains the below:
